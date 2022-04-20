@@ -7,7 +7,7 @@ On nodes that use the `ppc64le` processor architecture instead of the "standard"
 2. Edit your `.bashrc` so that the correct conda version is loaded depending on the current architecture
 3. Create environments and install your packages
 
-### Installing conda
+### 1. Installing conda
 For `ppc64le`, we need to use [miniforge](https://github.com/conda-forge/miniforge), which is a fork of the regular `conda` command and works exactly the same. For `x86_64`, we can use whatever `conda` distribution we prefer, or even `pip`. For simplicity, I recommend use `miniforge` as well.
 
 1. Log into a node that uses the `ppc64le` architecture
@@ -15,7 +15,7 @@ For `ppc64le`, we need to use [miniforge](https://github.com/conda-forge/minifor
 3. Install conda with `bash Miniforge3-Linux-ppc64le.sh`. I recommend to add a prefix to the install location, e.g. `/hpi/fs00/home/<username>/ppc-miniforge3` instead of `/hpi/fs00/home/<username>/miniforge3`. **Important**: when asked whether to automatically do `conda init`, **decline**. We will do this manually.
 4. If you have no environment setup for `x86_64` or want to follow this guide exactly (**recommended**), repeat steps 1.-3. with with the [installation script](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh) for `x86_64` and a **different** prefix, e.g. `x64-`.
 
-### Editing the `.bashrc`
+### 2. Editing the `.bashrc`
 We need to manually intialize the correct `conda` distribution depending on the processor architecture. Paste the following snippet at the bottom of your `.bashrc`. You need to replace <username> with your username and adjust the install locations for `conda` if you deviated from the guide.
 
 <details><summary>Snippet</summary>
@@ -67,7 +67,7 @@ fi
 You can uncomment the `echo` lines to verify that the snippet is working correctly. Beware that output in the `.bashrc` can cause issues for tools like `rsync` or `sftp`, so make sure to comment them out again after you are done.
 > :bulb: Reload the `.bashrc` with `source ~/.bashrc`.
   
-### Creating environments and installing packages
+### 3. Creating environments and installing packages 
 For `x86_64`, you can continue as you are used to. For `ppc64le` please follow this guide.
 1. (logged into a `ppc64le` node) Create a new environment and activate it. Supported Python versions are `3.8` and `3.9` (April 2022). **Important**: the names for environments on `x86_64` and `ppc64le` **must not** be the same.
 2. To install packages with a compiled backends, use the https://ftp.osuosl.org/pub/open-ce/current/ channel. You can inspect available packages compiled for `ppc64le` and their versions [here.](https://ftp.osuosl.org/pub/open-ce/current/)
