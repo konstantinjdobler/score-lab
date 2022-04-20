@@ -26,45 +26,46 @@ arch=$(uname -i)
 if [[ $arch == x86_64* ]]; then
   # echo "Executing X64 (${arch}) Architecture specific part "
 
-	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/hpi/fs00/home/<username>/x64-miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-	    eval "$__conda_setup"
-	else
-	    if [ -f "/hpi/fs00/home/<username>/x64-miniforge3/etc/profile.d/conda.sh" ]; then
-	        . "/hpi/fs00/home/<username>/x64-miniforge3/etc/profile.d/conda.sh"
-	    else
-	        export PATH="/hpi/fs00/home/<username>/x64-miniforge3/bin:$PATH"
-	    fi
-	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/hpi/fs00/home/<username>/x64-miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/hpi/fs00/home/<username>/x64-miniforge3/etc/profile.d/conda.sh" ]; then
+	  . "/hpi/fs00/home/<username>/x64-miniforge3/etc/profile.d/conda.sh"
+      else
+	  export PATH="/hpi/fs00/home/<username>/x64-miniforge3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
 	
 elif [[ $arch == ppc* ]]; then  
-	# echo "Executing POWER (${arch}) Architecture specific part "
-	
-	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$('/hpi/fs00/home/<username>/ppc-miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-	    eval "$__conda_setup"
-	else
-	    if [ -f "/hpi/fs00/home/<username>/ppc-miniforge3/etc/profile.d/conda.sh" ]; then
-	        . "/hpi/fs00/home/<username>/ppc-miniforge3/etc/profile.d/conda.sh"
-	    else
-	        export PATH="/hpi/fs00/home/<username>/ppc-miniforge3/bin:$PATH"
-	    fi
-	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
-	
+  # echo "Executing POWER (${arch}) Architecture specific part "
+
+  # >>> conda initialize >>>
+  # !! Contents within this block are managed by 'conda init' !!
+  __conda_setup="$('/hpi/fs00/home/<username>/ppc-miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+  if [ $? -eq 0 ]; then
+      eval "$__conda_setup"
+  else
+      if [ -f "/hpi/fs00/home/<username>/ppc-miniforge3/etc/profile.d/conda.sh" ]; then
+          . "/hpi/fs00/home/<username>/ppc-miniforge3/etc/profile.d/conda.sh"
+      else
+          export PATH="/hpi/fs00/home/<username>/ppc-miniforge3/bin:$PATH"
+      fi
+  fi
+  unset __conda_setup
+  # <<< conda initialize <<<
+
 fi
 ```
 </p>
 </details>  
   
-You can uncomment the `echo` lines to verify that the snippet is working correctly. Reload the `.bashrc` with `source ~/.bashrc`.
+You can uncomment the `echo` lines to verify that the snippet is working correctly. Beware that output in the `.bashrc` can cause issues for tools like `rsync` or `sftp`, so make sure to comment them out again after you are done.
+> :bulb: Reload the `.bashrc` with `source ~/.bashrc`.
   
 ### Creating environments and installing packages
 For `x86_64`, you can continue as you are used to. For `ppc64le` please follow this guide.
