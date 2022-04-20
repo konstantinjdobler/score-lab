@@ -69,12 +69,13 @@ You can uncomment the `echo` lines to verify that the snippet is working correct
 ### Creating environments and installing packages
 For `x86_64`, you can continue as you are used to. For `ppc64le` please follow this guide.
 1. (logged into a `ppce64le` node) Create a new environment and activate it. **Important**: the names for environments on `x86_64` and `ppce64le` **must not** be the same.
-2. To install packages with a compiled backends, use the https://ftp.osuosl.org/pub/open-ce/current/ channel, like so:
+2. To install packages with a compiled backends, use the https://ftp.osuosl.org/pub/open-ce/current/ channel. You can inspect available packages compiled for `ppc64le` and their versions [here.](https://ftp.osuosl.org/pub/open-ce/current/)
   ```bash
   conda install -c https://ftp.osuosl.org/pub/open-ce/current/ pytorch
   ```
+> :bulb: To always try to use this channel, run `conda config --prepend channels https://ftp.osuosl.org/pub/open-ce/current/`
   
-You can inspect available packages compiled for `ppc64le` and their versions [here.](https://ftp.osuosl.org/pub/open-ce/current/)
+
   
 3. To install other packages, you can install them regularly with `conda install`. I recommend to install pytorch first to avoid version conflicts.
   
