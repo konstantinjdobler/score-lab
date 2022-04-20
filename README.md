@@ -13,7 +13,7 @@ For `ppc64le`, we need to use [miniforge](https://github.com/conda-forge/minifor
 1. Log into a node that uses the `ppc64le` architecture
 2. Download the [installation script](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-ppc64le.sh) for `ppc64le` from the miniforge GitHub into your home directory (`/hpi/fs00/home/<username>/`)
 3. Install conda with `bash Miniforge3-Linux-ppc64le.sh`. I recommend to add a prefix to the install location, e.g. `/hpi/fs00/home/<username>/ppc-miniforge3` instead of `/hpi/fs00/home/<username>/miniforge3`. **Important**: when asked whether to automatically do `conda init`, **decline**. We will do this manually.
-4. If you have no environment setup for `x86_64` or want to follow this guide exactly, repeat steps 1.-3. with with the [installation script](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh) for `x86_64` and a **different** prefix, e.g. `x64-`.
+4. If you have no environment setup for `x86_64` or want to follow this guide exactly (**recommended**), repeat steps 1.-3. with with the [installation script](https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh) for `x86_64` and a **different** prefix, e.g. `x64-`.
 
 ### Editing the `.bashrc`
 We need to manually intialize the correct `conda` distribution depending on the processor architecture. Paste the following snippet at the bottom of your `.bashrc`. You need to replace <username> with your username and adjust the install locations for `conda` if you deviated from the guide.
