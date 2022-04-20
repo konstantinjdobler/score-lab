@@ -1,7 +1,9 @@
 # score-lab
 
 ## Setup for nodes with `ppc64le` (Power-PC) processor architecture
-On nodes that use the `ppc64le` processor architecture instead of the "standard" `x86_64`, any *compiled* package or tool will need to be recompiled for the new architecture. For Machine Learning workloads, this mostly concerns `conda` and packages with a compiled backend like `pytorch` or `tensorflow`. Compiling from source is tricky and can take a **very** long time, but luckily there are a few tricks to make things easier. To enable a seamless experience across processor arhcitecures, we need to take the following steps:
+On nodes that use the `ppc64le` processor architecture instead of the "standard" `x86_64`, any *compiled* package or tool will need to be recompiled for the new architecture. For Machine Learning workloads, this mostly concerns `conda` and packages with a compiled backend like `pytorch` or `tensorflow`. 
+
+Compiling from source is tricky and can take a **very** long time, but luckily there are a few tricks to make things easier using specific open-source `conda` channels which ship pre-compiled versions for `ppc64le`. To enable a seamless experience across processor architecures, we need to take the following steps:
 
 1. Install the correct conda **distribution** (not just creating a new environment) for the processor architecture
 2. Edit your `.bashrc` so that the correct conda distribution is loaded depending on the current architecture
@@ -9,6 +11,16 @@ On nodes that use the `ppc64le` processor architecture instead of the "standard"
 
 ### 1. Installing conda
 For `ppc64le`, we need to use [mambaforge](https://github.com/conda-forge/miniforge#mambaforge), which is a fork of the regular `conda` command and works exactly the same, except that you use `mamba` instead of `conda`. As a bonus, it is also *much* faster than `conda`.  For `x86_64`, we can use whatever `conda` distribution we prefer, or even `pip`. For simplicity, I recommend to use `mambaforge` as well.
+
+<details><summary>More about mamba and conda</summary>
+<p>
+	
+If you *really* want to, you can probably get away without using `mamba`, if you do it is still recommended to use [miniforge](https://github.com/conda-forge/miniforge#miniforge3) (same repo as mambaforge) instead of other `conda` distributions because it is optimized for `ppc64le`. Specifically for `pytorch`, using `mamba` makes the installation much easier (and also much faster). 
+	
+If you use `mamba`, you can still use `conda` to issue the same commands. I.e. if you suspect some bug in `mamba` is causing an install to fail you can also try `conda install ...`. In general, you can also choose to use  `mamba` *only*for the install commands (which is where `mamba` makes a lot of improvements) and keep using `conda` for the rest.
+	
+</p>
+</details>
 
 1. Log into a node that uses the `ppc64le` architecture
 2. Download the [mambaforge installation script](https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-Linux-ppc64le.sh) for `ppc64le` from the [mambaforge GitHub](https://github.com/conda-forge/miniforge#mambaforge) into your home directory (`/hpi/fs00/home/<username>/`)
@@ -82,8 +94,7 @@ For `x86_64`, you can continue as you are used to. For `ppc64le` please follow t
 PyTorch is a bit tricky. We need to add the `defaults` channel to provide some minor dependencies. The following command was tested and works (April 2022):
 ```bash
 mamba install pytorch -c https://ftp.osuosl.org/pub/open-ce/current/ -c defaults
-```
-	
+```	
  
 </p>
 </details>	
@@ -118,4 +129,4 @@ fi
 </p>
 </details>
   
-Now you are done and can enjoy your setup!
+🍾 Once you're done, give yourself a pad on the back and can enjoy your dev environment! 🍾
