@@ -1,7 +1,7 @@
 # score-lab
 
 ## Setup for nodes with `ppc64le` (Power-PC) processor architecture
-On nodes that use the `ppce64le` processor architecture instead of the "standard" `x86_64`, any *compiled* package or tool will need to be recompiled for the new architecture. For Machine Learning workloads, this mostly concerns `conda` and packages with a compiled backend like `pytorch`. Compiling from source is tricky and can take a **very** long time, but luckily there are a few tricks to make things easier. To enable a seamless experience across processor arhcitecures, we need to take the following steps:
+On nodes that use the `ppc64le` processor architecture instead of the "standard" `x86_64`, any *compiled* package or tool will need to be recompiled for the new architecture. For Machine Learning workloads, this mostly concerns `conda` and packages with a compiled backend like `pytorch`. Compiling from source is tricky and can take a **very** long time, but luckily there are a few tricks to make things easier. To enable a seamless experience across processor arhcitecures, we need to take the following steps:
 
 1. Install the correct conda **version** (not just crearing a new environment) for the processor architecture
 2. Edit your `.bashrc` so that the correct conda version is loaded depending on the current architecture
@@ -68,7 +68,7 @@ You can uncomment the `echo` lines to verify that the snippet is working correct
   
 ### Creating environments and installing packages
 For `x86_64`, you can continue as you are used to. For `ppc64le` please follow this guide.
-1. (logged into a `ppce64le` node) Create a new environment and activate it. **Important**: the names for environments on `x86_64` and `ppce64le` **must not** be the same.
+1. (logged into a `ppc64le` node) Create a new environment and activate it. **Important**: the names for environments on `x86_64` and `ppc64le` **must not** be the same.
 2. To install packages with a compiled backends, use the https://ftp.osuosl.org/pub/open-ce/current/ channel. You can inspect available packages compiled for `ppc64le` and their versions [here.](https://ftp.osuosl.org/pub/open-ce/current/)
   ```bash
   conda install -c https://ftp.osuosl.org/pub/open-ce/current/ pytorch
