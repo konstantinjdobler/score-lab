@@ -51,7 +51,7 @@ elif [[ $arch == ppc* ]]; then
 	    eval "$__conda_setup"
 	else
 	    if [ -f "/hpi/fs00/home/<username>/ppc-miniforge3/etc/profile.d/conda.sh" ]; then
-	        . "/hpi/fs00/home/konstantin.dobler/ppc-miniforge3/etc/profile.d/conda.sh"
+	        . "/hpi/fs00/home/<username>/ppc-miniforge3/etc/profile.d/conda.sh"
 	    else
 	        export PATH="/hpi/fs00/home/<username>/ppc-miniforge3/bin:$PATH"
 	    fi
