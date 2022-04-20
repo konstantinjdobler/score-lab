@@ -64,7 +64,7 @@ fi
 </p>
 </details>  
   
-You can uncomment the `echo` lines to verify that the snippet is working correctly. Relaod the `.bashrc` with `source ~/.bashrc`.
+You can uncomment the `echo` lines to verify that the snippet is working correctly. Reload the `.bashrc` with `source ~/.bashrc`.
   
 ### Creating environments and installing packages
 For `x86_64`, you can continue as you are used to. For `ppc64le` please follow this guide.
