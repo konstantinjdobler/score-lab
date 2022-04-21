@@ -96,9 +96,10 @@ For `x86_64`, you can continue as you are used to. For `ppc64le` please follow t
 	<p>
 
 	PyTorch is a bit tricky. We need to add the `defaults` channel to provide some minor dependencies. The following command was tested and works (April 2022). Just to be safe, install `pytorch` as the first package before any others.
-		```bash
-		mamba install pytorch -c https://ftp.osuosl.org/pub/open-ce/current/ -c defaults
-		```	
+		
+	```bash
+	mamba install pytorch -c https://ftp.osuosl.org/pub/open-ce/current/ -c defaults
+	```	
 
 	</p>
 	</details>	
