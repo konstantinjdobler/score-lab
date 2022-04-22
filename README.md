@@ -1,6 +1,8 @@
 # score-lab
 
 ## Setup for nodes with `ppc64le` (Power-PC) processor architecture
+**TL;DR:** Use a special `conda` channel that ships packages compiled for `ppc64le`, for convenience edit the `.bashrc` to load the correct conda distribution for the processor architecture. This guide uses conda, to use docker images you can have a look at https://github.com/Maxscha/ppc64le-pytorch-docker
+
 On nodes that use the `ppc64le` processor architecture instead of the "standard" `x86_64`, any *compiled* package or tool will need to be recompiled for the new architecture. For Machine Learning workloads, this mostly concerns `conda` and packages with a compiled backend like `pytorch` or `tensorflow`. 
 
 Compiling from source is tricky and can take a **very** long time, but luckily there are a few tricks to make things easier using specific open-source `conda` channels which ship pre-compiled versions for `ppc64le`. To enable a seamless experience across processor architecures, we need to take the following steps:
