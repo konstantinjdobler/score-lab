@@ -1,0 +1,32 @@
+name: myenv
+channels:
+  - https://ftp.osuosl.org/pub/open-ce/current/
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.9
+  - flask
+  - pytorch
+  # - torchvision
+  # - click
+  # - autopep8
+  # - typing
+  # - pip
+  - wandb
+  - pytorch-lightning
+  # - transformers
+  # - tokenizers
+  # - datasets
+  # - numpy
+  # - pandas
+  # - loguru
+  # - black
+  # - mypy
+  # - sentencepiece
+  # - seqeval
+  # - tqdm
+  # - pip:
+  #   - warmup-scheduler
+  # # - pip:
+  # #   - farm
+  - cudatoolkit=11.2 # adjust or remove if on cpu
